@@ -1,0 +1,24 @@
+{
+    "name": "es6-learning",
+    "version": "1.0.0",
+    "description": "ES6 JavaScript Learning Project",
+    "main": "dist/index.js",
+    "scripts": {
+        "start": "node dist/index.js",
+        "build": "babel src --out-dir dist",
+        "dev": "babel src --out-dir dist --watch",
+        "test": "node test/run-all.js"
+    },
+    "keywords": [
+        "es6",
+        "javascript",
+        "learning"
+    ],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/cli": "^7.23.0",
+        "@babel/core": "^7.23.0",
+        "@babel/preset-env": "^7.23.0"
+    }
+}

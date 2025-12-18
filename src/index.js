@@ -1,85 +1,42 @@
-// ============================================
-// ES6 Features Learning Examples
-// ============================================
 
-// 1. Arrow Functions
-const add = (a, b) => a + b;
-console.log("Arrow Function:", add(5, 3)); // Output: 8
+import square, { greet, PI, idGenerator } from './utils.js';
 
-const mul = (a, b) => a * b;
-console.log("Arrow Function:", mul(5, 3)); // Output:15
+console.log('ES6 Node demo — basic features');
 
-// 2. Template Literals
-const name = "Jaffer";
-const greeting = `Hello, ${name}! Welcome to ES6 Learning.`;
-console.log(greeting);
+console.log(greet('Learner'));
 
-// 3. Destructuring - Objects
-const person = { firstName: "John", lastName: "Doe", age: 30 };
-const { firstName, lastName, age } = person;
-console.log(`Person: ${firstName} ${lastName}, Age: ${age}`); // Output: Person: John Doe, Age: 30
+const numbers = [1, 2, 3, 4, 5];
+const squares = numbers.map(n => square(n));
+console.log('squares:', squares);
 
-const product = { id: 101, custname: "Laptop", price: 999.99 };
-const { id, custname, price } = product;
-console.log(`Product ID: ${id}, Name: ${custname}, Price: $${price}`); // Output: Product ID: 101, Name: Laptop, Price: $999.99
-
-// 4. Destructuring - Arrays
-const colors = ["red", "green", "blue"];
-const [firstColor, secondColor] = colors;
-console.log(`First color: ${firstColor}, Second color: ${secondColor}`); //
-
-// 5. Classes
 class Animal {
-    constructor(name) {
-        this.name = name;
-    }
-
-    speak() {
-        console.log(`${this.name} makes a sound`);
-    }
+  constructor(name) {
+    this.name = name;
+  }
+  speak() {
+    return `${this.name} makes a noise.`;
+  }
 }
 
 class Dog extends Animal {
-    speak() {
-        console.log(`${this.name} barks`);
-    }
+  speak() {
+    return `${this.name} barks.`;
+  }
 }
 
-const dog = new Dog("Buddy");
-dog.speak(); // Output: Buddy barks
+const d = new Dog('Rex');
+console.log(d.speak());
 
-// 6. Default Parameters
-const greet = (name = "Guest") => `Hello, ${name}!`;
-console.log(greet()); // Output: Hello, Guest!
-console.log(greet("Alice")); // Output: Hello, Alice!
+console.log('PI ~', PI.toFixed(4));
 
-// 7. Spread Operator
-const array1 = [1, 2, 3];
-const array2 = [...array1, 4, 5];
-console.log("Spread Operator:", array2); // Output: [1, 2, 3, 4, 5]
+const gen = idGenerator();
+console.log('ids:', gen.next().value, gen.next().value, gen.next().value);
 
-// 8. const and let (Block Scope)
-{
-    let blockScoped = "I'm block scoped";
-    const constant = "I cannot be reassigned";
-    console.log(blockScoped, constant);
+// async/await example
+async function asyncDemo() {
+  const wait = ms => new Promise(res => setTimeout(res, ms));
+  await wait(100);
+  return 'async done';
 }
 
-// 9. For...of Loop
-console.log("For...of Loop:");
-for (const color of colors) {
-    console.log(color);
-}
-
-// 10. Promises
-const fetchData = () => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve("Data fetched successfully!");
-        }, 1000);
-    });
-};
-
-fetchData().then((data) => console.log(data));
-
-console.log("ES6 Learning Project Setup Complete!");
+asyncDemo().then(console.log);

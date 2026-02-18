@@ -7,7 +7,9 @@
         "start": "node dist/index.js",
         "build": "babel src --out-dir dist",
         "dev": "babel src --out-dir dist --watch",
-        "test": "node test/run-all.js"
+        "test": "node test/run-all.js",
+        "example:fetchapi": "node src/examples/FetchAPI.js",
+        "example:eventloop": "node src/examples/EventLoop.js"
     },
     "keywords": [
         "es6",
